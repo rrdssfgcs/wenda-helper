@@ -1,20 +1,14 @@
 ## 响应最快支持多开的百万英雄//芝士超人/冲顶大会答题助手~
 
-效果图
+支持问题自动识别搜索~效果图如下~
+
+![](demo.gif)
 
 ## 特点
 * 使用手机模拟器，快速识别~
 * 浏览器自动搜索显示结果，搜索引擎可配置，结果一目了然~
 * [模拟器还能多开哦~全部答对奖金翻倍，遇到不会的可以多选乱蒙](https://www.yeshen.com/blog/duokai/)
-* 百万英雄/芝士超人/冲顶大会都支持哦~
-
-## 使用步骤
-
-1. 从python官网安装python3.6环境
-2. pip install -r requirements.txt
-3. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
-4. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上[chrome版本对应的chromedriver.exe](http://blog.csdn.net/huilan_same/article/details/51896672)替换tools文件夹下的该文件
-5. 运行start.bat，问题出现时按F2
+* 百万英雄/知识超人/冲顶大会都支持哦~
 
 ## Release
 
@@ -22,8 +16,13 @@
 
 ## TODO
 
-* 自动答题功能
-* 多开辅助功能
+## 使用步骤
+
+1. 从python官网安装python3.6环境
+2. pip install -r requirements.txt
+3. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
+4. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
+5. 运行start.bat，问题出现时按F2
 
 ## FAQ
 
