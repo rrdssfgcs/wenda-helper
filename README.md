@@ -8,12 +8,6 @@
 * [模拟器还能多开哦~全部答对奖金翻倍，遇到不会的可以多选乱蒙](https://www.yeshen.com/blog/duokai/)
 * 百万英雄/知识超人/冲顶大会都支持哦~
 
-## Release
-
-* 2018/1/9: 答题助手V1.0
-
-## TODO
-
 ## 使用步骤
 
 1. 从python官网安装python3.6环境
@@ -21,6 +15,14 @@
 3. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
 4. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上[chrome版本对应的chromedriver.exe](http://blog.csdn.net/huilan_same/article/details/51896672)替换tools文件夹下的该文件
 5. 运行start.bat，问题出现时按F2
+
+## Release
+
+* 2018/1/9: 答题助手V1.0
+
+## TODO
+
+* 自动答题功能
 
 ## FAQ
 
