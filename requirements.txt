@@ -9,7 +9,7 @@ hyperlink==17.3.1
 idna==2.6
 incremental==17.5.0
 lxml==4.1.1
-multidict==3.3.2
+multidict==3.3.1
 Pillow==5.0.0
 requests==2.18.4
 six==1.11.0
