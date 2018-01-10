@@ -34,3 +34,7 @@
 ## 参考的项目
 
 * [MillionHeroAssistant](https://github.com/smileboywtu/MillionHeroAssistant)
+
+## 交流学习
+* 人人都是算法工程师qq群：657506361，其他一些同学会不间断的在群里讨论算法工程师的相关内容。
+* 一并欢迎大家来我们的知乎专栏[人人都是算法工程师](https://zhuanlan.zhihu.com/rrdssfgcs)，观看几乎零基础的小机务（对，就是修飞机滴！）在学霸的指导下如何一步步地成为算法工程师的被虐之路。
