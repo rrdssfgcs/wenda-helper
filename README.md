@@ -19,7 +19,7 @@
 ## 使用步骤
 
 1. 从python官网安装[python3.6](https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe)，python2.7不行哦
-2. pip install -r requirements.txt
+2. 安装pip，在命令窗口运行（注意，要在requirements.txt所在的文件夹下运行）：pip install  -r requirements.txt
 3. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
 4. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
 5. 运行start.bat，问题出现时按F2
