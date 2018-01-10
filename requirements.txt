@@ -25,6 +25,6 @@ jieba==0.39
 nltk==3.2.5
 numpy==1.14.0
 sumy==0.7.0
-win32gui==221.6
 pyhooked==0.8.1
 selenium
+pypiwin32
