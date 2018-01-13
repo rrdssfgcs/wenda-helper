@@ -111,7 +111,7 @@ if __name__ == "__main__":
     browser.get(search_engine)
     hld = win32gui.FindWindow(None, vm_name)
     if hld > 0:
-        print('使用前记得去config.ini把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
+        print('使用前记得去config.ini把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦~~\n\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
         hk = Hook()
         hk.handler = handle_events
         hk.hook()
