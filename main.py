@@ -52,10 +52,16 @@ def pre_process_question(keyword):
     :param question:
     :return:
     """
-    for char, repl in [("“", ""), ("”", ""), ("？", ""), (" ", ""), ("\t", "")]:
+    for char, repl in [("“", ""), ("”", ""), (" ", ""), ("\t", "")]:
         keyword = keyword.replace(char, repl)
 
-    keyword = keyword.split(r"．")[-1]
+    keyword = keyword.split(r".")[-1]
+    tag = keyword.find("?")
+    if tag != -1:
+        keyword = keyword[:tag]
+    tag = keyword.find("？")
+    if tag != -1:
+        keyword = keyword[:tag]
     keywords = keyword.split(" ")
     keyword = "".join([e.strip("\r\n") for e in keywords if e])
     return keyword
