@@ -35,9 +35,9 @@
 
 * 一般是用完了，使用汉王阿里云只需要0.01元／50条，所以如果没有了，[可以自己注册阿里云账号购买](https://market.aliyun.com/products/57124001/cmapi011466.html?spm=5176.730005.0.0.Rvba26#sku=yuncode546600000)
 
-3. 配置文件在哪里？
+3. 自己的key在哪里替换呢？配置文件在哪里？
 
-* config.py
+* config.py哈
 
 4. pip怎么安装？
 
