@@ -20,7 +20,7 @@
 1. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
 2. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
 3. 修改config.ini，申请替换对应的app_id，app_key，app_secret(百度OCR每天最多用500次，一个帐号很快就用完了)(申请方法见下边)
-4. 运行main.py，问题出现时按F2
+4. 运行main.exe，问题出现时按F2
 
 ## FAQ
 
