@@ -104,4 +104,4 @@ if __name__ == "__main__":
         hk.handler = handle_events
         hk.hook()
     else:
-        print('咦，你没打开' + vm_name + '吧!')
+        print('咦，你没打开' + vm_name + '吧!请打开' + vm_name + '并重启下start.bat')
