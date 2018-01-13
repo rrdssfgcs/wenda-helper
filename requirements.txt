@@ -28,3 +28,4 @@ sumy==0.7.0
 pyhooked==0.8.1
 selenium
 pypiwin32
+baidu-aip==2.0.0.1
