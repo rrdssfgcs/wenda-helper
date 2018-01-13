@@ -30,6 +30,19 @@ def parse_args():
     )
     return parser.parse_args()
 
+def pre_process_question(keyword):
+    """
+    strip charactor and strip ?
+    :param question:
+    :return:
+    """
+    for char, repl in [("“", ""), ("”", ""), ("？", ""), (" ", ""), ("\t", "")]:
+        keyword = keyword.replace(char, repl)
+
+    keyword = keyword.split(r"．")[-1]
+    keywords = keyword.split(" ")
+    keyword = "".join([e.strip("\r\n") for e in keywords if e])
+    return keyword
 
 def main():
     print('我来识别这个题目是啥!!!')
@@ -45,6 +58,7 @@ def main():
         print("用百度去OCR识别了!!!\n")
         keyword = get_text_from_image_baidu(image_data=text_binary, app_id=app_id, app_key=app_key,
                                             app_secret=app_secret, api_version=api_version, timeout=5)
+        keyword = "".join([e.strip("\r\n") for e in keyword if e])
     else:
         print("用汉王去OCR识别了!!!\n")
         keyword = get_text_from_image_hanwang(image_data=text_binary, appcode=hanwan_appcode)
@@ -54,8 +68,8 @@ def main():
         print("题目出现的时候按F2，我就自动帮你去搜啦~\n")
         return
 
-    keyword = "".join([e.strip("\r\n") for e in keyword if e])
-    keyword.replace('\n', ' ')
+    keyword = pre_process_question(keyword)
+
     if len(keyword) < 2:
         print("没识别出来，随机选吧!!!\n")
         print("题目出现的时候按F2，我就自动帮你去搜啦~\n")

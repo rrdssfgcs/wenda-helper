@@ -11,6 +11,7 @@ search_engine = 'http://www.baidu.com'
 hot_key = 'F2'
 
 ocr_engine = 'baidu'
+# ocr_engine = 'hanwang'
 
 ### baidu orc
 app_id = "10684437" # 改成自己的哦
