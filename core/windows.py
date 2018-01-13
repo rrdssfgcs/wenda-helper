@@ -8,16 +8,17 @@
 
 """
 
-from datetime import datetime
-import os
 import ctypes
+import os
+import time
 import win32gui
+
 import win32com.client
 import win32con
-import time
-from PIL import Image,ImageGrab
+from PIL import Image, ImageGrab
 
-class RECT(ctypes.Structure): 
+
+class RECT(ctypes.Structure):
     _fields_ = [('left', ctypes.c_long), 
             ('top', ctypes.c_long), 
             ('right', ctypes.c_long), 

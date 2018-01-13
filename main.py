@@ -14,21 +14,37 @@ from pyhooked import Hook, KeyboardEvent
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
-from config import data_directory, hanwan_appcode, vm_name, search_engine, hot_key, ocr_engine, app_id, app_key, \
-    app_secret, api_version
 from core.ocr import get_text_from_image_hanwang, get_text_from_image_baidu
 from core.windows import analyze_current_screen_text
+import configparser
 
+conf = configparser.ConfigParser()
+conf.read("config.ini")
 
-def parse_args():
-    parser = ArgumentParser(description="Assistant")
-    parser.add_argument(
-        "-t", "--timeout",
-        type=int,
-        default=5,
-        help="default http request timeout"
-    )
-    return parser.parse_args()
+data_directory = conf.get('config',"data_directory")
+
+vm_name = conf.get('config',"vm_name")
+
+app_name = conf.get('config',"app_name")
+
+search_engine = conf.get('config',"search_engine")
+
+hot_key = conf.get('config',"hot_key")
+
+# ocr_engine = 'baidu'
+ocr_engine = conf.get('config',"ocr_engine")
+
+### baidu orc
+app_id = conf.get('config',"app_id")
+app_key = conf.get('config',"app_key")
+app_secret = conf.get('config',"app_secret")
+
+### 0 表示普通识别
+### 1 表示精确识别
+api_version = conf.get('config',"api_version")
+
+### hanwang orc
+hanwan_appcode = conf.get('config',"hanwan_appcode")
 
 def pre_process_question(keyword):
     """
@@ -46,10 +62,6 @@ def pre_process_question(keyword):
 
 def main():
     print('我来识别这个题目是啥!!!')
-    args = parse_args()
-    timeout = args.timeout
-
-    start = time.time()
     text_binary = analyze_current_screen_text(
         label=vm_name,
         directory=data_directory
@@ -99,7 +111,7 @@ if __name__ == "__main__":
     browser.get(search_engine)
     hld = win32gui.FindWindow(None, vm_name)
     if hld > 0:
-        print('用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
+        print('使用前记得去config.ini把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
         hk = Hook()
         hk.handler = handle_events
         hk.hook()
