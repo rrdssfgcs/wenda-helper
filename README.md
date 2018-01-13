@@ -12,13 +12,9 @@
 * [模拟器还能多开哦~全部答对奖金翻倍，遇到不会的可以多选乱蒙](https://www.yeshen.com/blog/duokai/)
 * 百万英雄/知识超人/冲顶大会都支持哦~
 
-## Release
-
-* 2018/1/9: 答题助手V1.0
-* 2018/1/13: 添加百度OCR SDK(免费)
-
 ## 使用步骤
 
+0. 下载本项目到桌面，不要只下载main.exe哈
 1. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
 2. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
 3. 修改config.ini，申请替换对应的app_id，app_key，app_secret(百度OCR每天最多用500次，一个帐号很快就用完了)(申请方法见下边)
@@ -40,6 +36,11 @@
 
 ![](baidu.gif)
 
+## Release
+
+* 2018/1/9: 答题助手V1.0
+* 2018/1/13: 添加百度OCR SDK(免费)
+* 2018/1/13: 编译可执行文件
 
 ## 参考的项目
 
