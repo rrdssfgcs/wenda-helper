@@ -19,11 +19,10 @@
 
 ## 使用步骤
 
-1. 从python官网安装[python3.6](https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe)，python2.7不行哦
-2. 安装pip，在命令窗口运行（注意，要在requirements.txt所在的文件夹下运行）：pip install  -r requirements.txt
-3. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
-4. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
-5. 运行start.bat，问题出现时按F2
+1. 安装[夜神模拟器](https://www.yeshen.com/cn/download/fullPackage)，安装西瓜视频等应用
+2. 安装[chrome 63.0版本](https://download.pchome.net/internet-browser-browser/download-141761.html)，或者下载与你电脑上chrome版本对应的chromedriver.exe替换tools文件夹下的该文件
+3. 修改config.ini，申请替换对应的app_id，app_key，app_secret(百度OCR每天最多用500次，一个帐号很快就用完了)(申请方法见下边)
+4. 运行main.py，问题出现时按F2
 
 ## FAQ
 
@@ -35,13 +34,12 @@
 
 * 一般是用完了，使用汉王阿里云只需要0.01元／50条，所以如果没有了，[可以自己注册阿里云账号购买](https://market.aliyun.com/products/57124001/cmapi011466.html?spm=5176.730005.0.0.Rvba26#sku=yuncode546600000)
 
-3. 自己的key在哪里替换呢？配置文件在哪里？
+3. 百度OCR key具体如何申请？
 
-* config.py哈
+* [注册百度云账号](http://ai.baidu.com/tech/ocr/general)，打开[控制台](https://console.bce.baidu.com/iam)，然后按下图操作
 
-4. pip怎么安装？
+![](baidu.gif)
 
-* [看官方文档最稳啦](https://pip.pypa.io/en/stable/installing/)
 
 ## 参考的项目
 
