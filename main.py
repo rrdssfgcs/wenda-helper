@@ -18,33 +18,59 @@ from core.ocr import get_text_from_image_hanwang, get_text_from_image_baidu
 from core.windows import analyze_current_screen_text
 import configparser
 
-conf = configparser.ConfigParser()
-conf.read("config.ini")
+data_directory = 'screenshots'
 
-data_directory = conf.get('config',"data_directory")
+vm_name = '夜神模拟器'
 
-vm_name = conf.get('config',"vm_name")
+app_name = '西瓜视频'
 
-app_name = conf.get('config',"app_name")
+search_engine = 'http://www.baidu.com'
 
-search_engine = conf.get('config',"search_engine")
-
-hot_key = conf.get('config',"hot_key")
+hot_key = 'F2'
 
 # ocr_engine = 'baidu'
-ocr_engine = conf.get('config',"ocr_engine")
+ocr_engine = 'baidu'
 
 ### baidu orc
-app_id = conf.get('config',"app_id")
-app_key = conf.get('config',"app_key")
-app_secret = conf.get('config',"app_secret")
+app_id = '10685256'
+app_key = 'HXaNc3lmpStCNVIQcG8hGB5l'
+app_secret = '1x7KQTKEuXECIqqH1D5Fa45sgLV4wBGi'
 
 ### 0 表示普通识别
 ### 1 表示精确识别
-api_version = conf.get('config',"api_version")
+api_version = 1
 
 ### hanwang orc
-hanwan_appcode = conf.get('config',"hanwan_appcode")
+hanwan_appcode = '3cc4f16c357e4f329dab5e71c810a871'
+
+def init():
+    conf = configparser.ConfigParser()
+    conf.read("config.ini")
+
+    data_directory = conf.get('config',"data_directory")
+
+    vm_name = conf.get('config',"vm_name")
+
+    app_name = conf.get('config',"app_name")
+
+    search_engine = conf.get('config',"search_engine")
+
+    hot_key = conf.get('config',"hot_key")
+
+    # ocr_engine = 'baidu'
+    ocr_engine = conf.get('config',"ocr_engine")
+
+    ### baidu orc
+    app_id = conf.get('config',"app_id")
+    app_key = conf.get('config',"app_key")
+    app_secret = conf.get('config',"app_secret")
+
+    ### 0 表示普通识别
+    ### 1 表示精确识别
+    api_version = conf.get('config',"api_version")
+
+    ### hanwang orc
+    hanwan_appcode = conf.get('config',"hanwan_appcode")
 
 def pre_process_question(keyword):
     """
@@ -113,8 +139,16 @@ def handle_events(args):
 
 
 if __name__ == "__main__":
-    browser = webdriver.Chrome(r'.\tools\chromedriver.exe')
-    browser.get(search_engine)
+    try:
+        init()
+        print("配置文件正常加载!\n")
+    except:
+        print("配置文件异常，尝试使用默认配置\n")
+    try:
+        browser = webdriver.Chrome(r'.\tools\chromedriver.exe')
+        browser.get(search_engine)
+    except:
+        print("chrome浏览器打开异常，可能是版本不对\n")
     hld = win32gui.FindWindow(None, vm_name)
     if hld > 0:
         print('使用前记得去config.ini把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦~~\n\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
@@ -122,4 +156,5 @@ if __name__ == "__main__":
         hk.handler = handle_events
         hk.hook()
     else:
-        print('咦，你没打开' + vm_name + '吧!请打开' + vm_name + '并重启下start.bat')
+        print('咦，你没打开' + vm_name + '吧!请打开' + vm_name + '并重启下start.exe')
+
