@@ -46,7 +46,7 @@ hanwan_appcode = '3cc4f16c357e4f329dab5e71c810a871'
 def init():
     conf = configparser.ConfigParser()
     conf.read("config.ini")
-
+    global data_directory,vm_name,app_name,search_engine,hot_key,ocr_engine,app_id,app_key,app_secret,api_version,hanwan_appcode
     data_directory = conf.get('config',"data_directory")
 
     vm_name = conf.get('config',"vm_name")
