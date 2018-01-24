@@ -8,16 +8,14 @@
 """
 import time
 import win32gui
-from argparse import ArgumentParser
-
 from pyhooked import Hook, KeyboardEvent
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-
 from core.ocr import get_text_from_image_hanwang, get_text_from_image_baidu
 from core.windows import analyze_current_screen_text
-import configparser
+from xml.dom.minidom import parse
 
+# 默认配置
 data_directory = 'screenshots'
 
 vm_name = '夜神模拟器'
@@ -43,34 +41,51 @@ api_version = 1
 ### hanwang orc
 hanwan_appcode = '3cc4f16c357e4f329dab5e71c810a871'
 
+
+# 初始化个人购买的百度或者汉王的账号配置
+def getText(nodelist):
+    rc = ""
+    for node in nodelist:
+        if node.nodeType == node.TEXT_NODE:
+            rc = rc + node.data
+    return rc
+
+
+def getConfig(tag):
+    tagnames = config_element.getElementsByTagName(tag)
+    for tag in tagnames:
+        return getText(tag.childNodes)
+
 def init():
-    conf = configparser.ConfigParser()
-    conf.read("config.ini")
-    global data_directory,vm_name,app_name,search_engine,hot_key,ocr_engine,app_id,app_key,app_secret,api_version,hanwan_appcode
-    data_directory = conf.get('config',"data_directory")
+    global dom1, config_element, data_directory, vm_name, app_name, search_engine, hot_key, ocr_engine, app_id, app_key, app_secret, api_version, hanwan_appcode
 
-    vm_name = conf.get('config',"vm_name")
+    dom1 = parse('config.xml')  # parse an XML file by name
 
-    app_name = conf.get('config',"app_name")
+    config_element = dom1.getElementsByTagName("config")[0]
 
-    search_engine = conf.get('config',"search_engine")
+    data_directory = getConfig("data_directory")
 
-    hot_key = conf.get('config',"hot_key")
+    vm_name = getConfig("vm_name")
 
-    # ocr_engine = 'baidu'
-    ocr_engine = conf.get('config',"ocr_engine")
+    search_engine = getConfig("search_engine")
+
+    hot_key = getConfig("hot_key")
+
+    # ocr_engine = 'baidu'或者hanwang
+    ocr_engine = getConfig("ocr_engine")
 
     ### baidu orc
-    app_id = conf.get('config',"app_id")
-    app_key = conf.get('config',"app_key")
-    app_secret = conf.get('config',"app_secret")
+    app_id = getConfig("app_id")
+    app_key = getConfig("app_key")
+    app_secret = str(getConfig("app_secret"))
 
     ### 0 表示普通识别
     ### 1 表示精确识别
-    api_version = conf.get('config',"api_version")
+    api_version = str(getConfig("api_version"))
 
     ### hanwang orc
-    hanwan_appcode = conf.get('config',"hanwan_appcode")
+    hanwan_appcode = str(getConfig("hanwan_appcode"))
+  
 
 def pre_process_question(keyword):
     """
@@ -151,7 +166,7 @@ if __name__ == "__main__":
         print("chrome浏览器打开异常，可能是版本不对\n")
     hld = win32gui.FindWindow(None, vm_name)
     if hld > 0:
-        print('使用前记得去config.ini把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦~~\n\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
+        print('使用前记得去config.xml把配置改好哦~~,主要是自己申请换key,不然次数很快就用完啦~~\n\n用模拟器打开对应应用~~\n题目出现的时候按F2，我就自动帮你去搜啦~\n')
         hk = Hook()
         hk.handler = handle_events
         hk.hook()
